@@ -2,8 +2,19 @@
 lock "~> 3.18.0"
 
 set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+#set :repo_url, "git@example.com:me/my_repo.git"
+set :repo_url, "git@github.com:nakamu-kazu222/nginx_rails.git"
 
+set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+
+set :user, "deploy"
+
+set :bundle_jobs, 2
+
+append :linked_files, "config/master.key"
+
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets",  '.bundle'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 

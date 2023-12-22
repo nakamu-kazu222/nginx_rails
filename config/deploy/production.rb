@@ -1,3 +1,5 @@
+server "192.168.0.9", user: "deploy", roles: %w{web db app}
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
